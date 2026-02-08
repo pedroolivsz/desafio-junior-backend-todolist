@@ -29,4 +29,9 @@ public class TodoController {
     public List<Todo> list() {
         return todoService.list();
     }
+
+    @DeleteMapping("/delete")
+    public List<Todo> delete(@RequestBody Long id) {
+        return todoService.delete(id);
+    }
 }
