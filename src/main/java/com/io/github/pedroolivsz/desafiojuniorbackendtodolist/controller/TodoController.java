@@ -24,4 +24,9 @@ public class TodoController {
     public List<Todo> update(@RequestBody Todo todo) {
         return todoService.update(todo);
     }
+
+    @GetMapping("/list")
+    public List<Todo> list() {
+        return todoService.list();
+    }
 }
