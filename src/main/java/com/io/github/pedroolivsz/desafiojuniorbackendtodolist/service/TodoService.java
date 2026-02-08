@@ -2,6 +2,7 @@ package com.io.github.pedroolivsz.desafiojuniorbackendtodolist.service;
 
 import com.io.github.pedroolivsz.desafiojuniorbackendtodolist.entity.Todo;
 import com.io.github.pedroolivsz.desafiojuniorbackendtodolist.repository.TodoRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,5 +13,24 @@ public class TodoService {
 
     public TodoService(TodoRepository todoRepository) {
         this.todoRepository = todoRepository;
+    }
+
+    public List<Todo> create(Todo todo) {
+    }
+
+
+    public List<Todo> update() {
+
+    }
+
+    public List<Todo> delete() {
+
+    }
+
+    public List<Todo> list() {
+        Sort sort = Sort.by("prioridade").descending().and(
+                Sort.by("name").ascending()
+        );
+        return todoRepository.findAll(sort);
     }
 }
