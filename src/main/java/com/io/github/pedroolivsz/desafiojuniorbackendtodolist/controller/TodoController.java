@@ -2,10 +2,7 @@ package com.io.github.pedroolivsz.desafiojuniorbackendtodolist.controller;
 
 import com.io.github.pedroolivsz.desafiojuniorbackendtodolist.entity.Todo;
 import com.io.github.pedroolivsz.desafiojuniorbackendtodolist.service.TodoService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +18,10 @@ public class TodoController {
     @PostMapping("/create")
     public List<Todo> create(@RequestBody Todo todo) {
         return todoService.create(todo);
+    }
+
+    @PutMapping("/update")
+    public List<Todo> update(@RequestBody Todo todo) {
+        return todoService.update(todo);
     }
 }
