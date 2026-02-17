@@ -21,8 +21,16 @@ public class TodoService {
     }
 
 
-    public List<Todo> update(Todo todo) {
-        todoRepository.save(todo);
+    public List<Todo> update(Long id, Todo todo) {
+        Todo existing = todoRepository.findById(id)
+                        .orElseThrow(() -> new RuntimeException("Todo not found"));
+
+        existing.setName(todo.getName());
+        existing.setDescription(todo.getDescription());
+        existing.setPrioridade(todo.getPrioridade());
+        existing.setRealizado(todo.isRealizado());
+
+        todoRepository.save(existing);
         return list();
     }
 

@@ -20,9 +20,9 @@ public class TodoController {
         return todoService.create(todo);
     }
 
-    @PutMapping("/update")
-    public List<Todo> update(@RequestBody Todo todo) {
-        return todoService.update(todo);
+    @PutMapping("/update/{id}")
+    public List<Todo> update(@PathVariable Long id, @RequestBody Todo todo) {
+        return todoService.update(id, todo);
     }
 
     @GetMapping("/list")
@@ -30,8 +30,8 @@ public class TodoController {
         return todoService.list();
     }
 
-    @DeleteMapping("/delete")
-    public List<Todo> delete(@RequestBody Long id) {
+    @DeleteMapping("/delete/{id}")
+    public List<Todo> delete(@PathVariable Long id) {
         return todoService.delete(id);
     }
 }
