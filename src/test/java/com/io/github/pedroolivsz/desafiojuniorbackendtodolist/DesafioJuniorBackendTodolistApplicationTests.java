@@ -38,6 +38,19 @@ class DesafioJuniorBackendTodolistApplicationTests {
 	}
 
 	@Test
-	void testCreateTodoFailure() {
+	void testCreateTodoFailure() throws Exception {
+		String json = """
+				{
+					"name": "",
+					"description": "",
+					"realizado": false,
+					"prioridade": 0
+				}
+				""";
+
+		mockMvc.perform(post("/todos/create")
+				.contentType("application/json")
+				.content(json))
+				.andExpect(status().isBadRequest());
 	}
 }

@@ -2,6 +2,8 @@ package com.io.github.pedroolivsz.desafiojuniorbackendtodolist.controller;
 
 import com.io.github.pedroolivsz.desafiojuniorbackendtodolist.entity.Todo;
 import com.io.github.pedroolivsz.desafiojuniorbackendtodolist.service.TodoService;
+import jakarta.validation.Valid;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,7 +18,7 @@ public class TodoController {
     }
 
     @PostMapping("/create")
-    public List<Todo> create(@RequestBody Todo todo) {
+    public List<Todo> create(@RequestBody @Valid Todo todo) {
         return todoService.create(todo);
     }
 
